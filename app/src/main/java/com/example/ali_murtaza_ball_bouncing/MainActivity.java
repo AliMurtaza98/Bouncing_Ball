@@ -26,13 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
         //Cogemos las imagenes
         final ImageView ball = findViewById(R.id.imageview_ball);
-        final ImageView square = findViewById(R.id.imageview_square);
+        final ImageView rectangle = findViewById(R.id.imageview_rectangle);
         DisplayMetrics display = this.getBaseContext().getResources().getDisplayMetrics();
         //Cogemos la altura y anchura de la pantalla
         height = display.heightPixels;
         width = display.widthPixels;
         //Las posiciones iniciales de la pelota
-        posX = 0;
+        posX = 400;
         posY = 0;
         velX = 5;
         velY = 10;
@@ -60,8 +60,15 @@ public class MainActivity extends AppCompatActivity {
                     velY = velY * -1;
                     posY = posY + velY;
                 }
-            }
 
+                if(posX+ball.getHeight() > rectangle.getX() && posY+ball.getHeight()> rectangle.getY()){
+                    velX = velX * -1;
+                }
+
+                else if(posX<=rectangle.getX()+rectangle.getWidth() && posY+ball.getWidth()<=rectangle.getHeight() && ball.getX()+ball.getWidth()>=rectangle.getX()+rectangle.getWidth() && posY+ball.getWidth()>=rectangle.getY()){
+                    velX = velX * -1;
+                }
+            }
 
         };
         Timer timer = new Timer();

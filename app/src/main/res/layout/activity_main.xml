@@ -8,28 +8,28 @@
 
     <ImageView
         android:id="@+id/imageview_ball"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="61dp"
+        android:layout_height="57dp"
         app:srcCompat="@drawable/ball"
         tools:layout_editor_absoluteX="-2dp"
         tools:layout_editor_absoluteY="2dp" />
 
     <ImageView
-        android:id="@+id/imageview_square"
-        android:layout_width="118dp"
-        android:layout_height="128dp"
+        android:id="@+id/imageview_rectangle"
+        android:layout_width="117dp"
+        android:layout_height="318dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="277dp"
-        android:layout_marginEnd="143dp"
-        android:layout_marginRight="143dp"
-        android:layout_marginBottom="326dp"
-        app:srcCompat="@drawable/cube" />
+        android:layout_marginStart="146dp"
+        android:layout_marginLeft="146dp"
+        android:layout_marginTop="304dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginRight="148dp"
+        android:layout_marginBottom="109dp"
+        app:srcCompat="@drawable/rectangle" />
 
 </RelativeLayout>
