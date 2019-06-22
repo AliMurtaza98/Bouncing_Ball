@@ -3,6 +3,8 @@ package com.example.ali_murtaza_ball_bouncing;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.Timer;
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Cogemos las imagenes
         final ImageView ball = findViewById(R.id.imageview_ball);
-        final ImageView rectangle = findViewById(R.id.imageview_rectangle);
+        //final ImageView rectangle = findViewById(R.id.imageview_rectangle);
         DisplayMetrics display = this.getBaseContext().getResources().getDisplayMetrics();
         //Cogemos la altura y anchura de la pantalla
         height = display.heightPixels;
@@ -60,16 +62,40 @@ public class MainActivity extends AppCompatActivity {
                     velY = velY * -1;
                     posY = posY + velY;
                 }
+//Cuando tocas la imagen y la mueves
+                ball.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        switch (event.getAction()) {
 
-                if(posX+ball.getHeight() > rectangle.getX() && posY+ball.getHeight()> rectangle.getY()){
+                            case MotionEvent.ACTION_DOWN:
+
+                                posX = ball.getX() - event.getRawX();
+                                posY = ball.getY() - event.getRawY();
+                                break;
+
+                            case MotionEvent.ACTION_MOVE:
+
+                                ball.animate()
+                                        .x(event.getRawX() + posX)
+                                        .y(event.getRawY() + posY)
+                                        .setDuration(0)
+                                        .start();
+                                break;
+                            default:
+                                return false;
+                        }
+                        return true;
+                    }
+                });
+            }
+               /* if(posX+ball.getHeight() > rectangle.getX() && posY+ball.getHeight()> rectangle.getY()){
                     velX = velX * -1;
                 }
 
                 else if(posX<=rectangle.getX()+rectangle.getWidth() && posY+ball.getWidth()<=rectangle.getHeight() && ball.getX()+ball.getWidth()>=rectangle.getX()+rectangle.getWidth() && posY+ball.getWidth()>=rectangle.getY()){
                     velX = velX * -1;
-                }
-            }
-
+                }*/
         };
         Timer timer = new Timer();
         timer.schedule(timertTask, 100, 30);
