@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     velY = velY * -1;
                     posY = posY + velY;
                 }
-//Cuando tocas la imagen y la mueves
+				//Cuando tocas la imagen y la mueves
                 ball.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
+                //Este codigo es del obstaculo
                /* if(posX+ball.getHeight() > rectangle.getX() && posY+ball.getHeight()> rectangle.getY()){
                     velX = velX * -1;
                 }
